@@ -40,6 +40,7 @@ class _DetailsScreenState extends ConsumerState<DetailsScreen> {
               },
             )
         ),
+
         body: SingleChildScrollView(
           child: Column(
             children: [
