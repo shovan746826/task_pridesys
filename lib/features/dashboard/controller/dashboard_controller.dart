@@ -74,6 +74,11 @@ class DashboardController extends BaseController{
     ));
   }
 
+  Future<void> updateCharacters(CharacterModel model) async{
+    var index = characterHiveBox.values.toList().indexWhere((element) => element.id == model.id);
+    await characterHiveBox.putAt(index, model);
+  }
+
   Future<List<CharacterModel>> getFavoriteCharacters() async{
     return characterHiveBox.values.toList().where((element) => element.isFavorite).toList();
   }

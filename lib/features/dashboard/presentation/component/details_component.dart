@@ -156,3 +156,26 @@ Widget detailsComponentLocation(CharacterModel item) {
       ),
   );
 }
+
+Widget detailsComponentEditView(CharacterModel item){
+  return Container(
+    padding: EdgeInsets.all(8.0.sp),
+    decoration: BoxDecoration(
+      color: ColorConfig.whiteColor,
+      borderRadius: BorderRadius.circular(8),
+    ),
+    child:  Column(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(
+          "Update Info",
+          style: TextStyle(
+            color: ColorConfig.greyColor,
+            fontWeight: FontWeight.bold,
+            fontSize: 14.sp,
+          )
+        )
+      ]
+    )
+  );
+}

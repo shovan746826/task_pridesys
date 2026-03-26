@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:task/core/config/size_config.dart';
 import 'package:task/core/global/widgets/app_background_view.dart';
+import 'package:task/core/global/widgets/custom_bottom_sheet.dart';
 import 'package:task/core/global/widgets/primary_button.dart';
 
 import '../../../../core/config/color_config.dart';
@@ -111,7 +112,7 @@ class _DetailsScreenState extends ConsumerState<DetailsScreen> {
           btnBorderRadius: 0,
           btnText: 'Edit',
           onPressed: (){
-
+            CustomBottomSheet.showSheet(context, detailsComponentEditView(widget.item), height: SizeConfig.screenHeight! * 0.7);
           },
         ),
       ),
