@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:go_router/go_router.dart';
 import '../../features/dashboard/model/response/hive_character_model.dart';
 import '../../features/dashboard/presentation/page/details_screen.dart';
+import '../../features/dashboard/presentation/page/favorite_list_screen.dart';
 import '../../features/splash/presentation/page/splash_screen.dart';
 import '../global/widgets/custom_transition_page.dart';
 
@@ -11,6 +12,7 @@ const String splashScreen = "/splashScreen";
 
 const String dashboardScreen = "/dashboardScreen";
 const String detailsScreen = "/detailsScreen";
+const String favoriteListScreen = "/favoriteListScreen";
 
 
 
@@ -50,6 +52,17 @@ var goRouter = GoRouter(
                 );
               },
           ),
+
+          GoRoute(
+              path: favoriteListScreen,
+              pageBuilder: (context, state) {
+                return buildPageWithTransition(
+                  context: context,
+                  state: state,
+                  child: FavoriteListScreen(),
+                );
+              },
+          ),
         ]
       ),
 
@@ -60,5 +73,6 @@ class RouterPath {
   static const String splashScreenPath = splashScreen;
   static const String dashboardScreenPath = dashboardScreen;
   static const String detailsScreenPath = "$dashboardScreen$detailsScreen";
+  static const String favoriteListScreenPath = "$dashboardScreen$favoriteListScreen";
 
 }

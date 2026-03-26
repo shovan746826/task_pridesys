@@ -10,6 +10,9 @@ var dashboardController = ChangeNotifierProvider((ref) {
   return controller;
 });
 
+
+var searchEnableProvider = StateProvider.autoDispose<bool>((ref) => false);
+
 final getCharacterListProvider = StateNotifierProvider<CharacterListNotifier, AsyncValue<List<CharacterModel>>>((ref) {
   return CharacterListNotifier(DashboardController());
 });
@@ -52,4 +55,22 @@ class CharacterListNotifier extends StateNotifier<AsyncValue<List<CharacterModel
 }
 
 
-var searchEnableProvider = StateProvider.autoDispose<bool>((ref) => false);
+
+
+final getFavoriteCharactersProvider = StateNotifierProvider<FavoriteCharactersNotifier, List<CharacterModel>?>((ref) {
+  return FavoriteCharactersNotifier();
+});
+
+class FavoriteCharactersNotifier extends StateNotifier<List<CharacterModel>?> {
+  FavoriteCharactersNotifier() : super(null);
+
+  getFavoriteCharacters() async {
+    state ??= await DashboardController().getFavoriteCharacters();
+  }
+
+  void clearState() {
+    state = null;
+  }
+}
+
+

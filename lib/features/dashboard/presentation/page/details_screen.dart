@@ -8,6 +8,7 @@ import '../../../../core/config/color_config.dart';
 import '../../../../core/global/widgets/custom_appbar.dart';
 import '../../../../core/global/widgets/custom_image_view.dart';
 import '../../model/response/hive_character_model.dart';
+import '../../provider/dashboard_provider.dart';
 
 class DetailsScreen extends ConsumerStatefulWidget {
   const DetailsScreen({super.key, required this.item});
@@ -36,6 +37,7 @@ class _DetailsScreenState extends ConsumerState<DetailsScreen> {
               onPressed: () {
                 setState(() {
                   widget.item.isFavorite = !widget.item.isFavorite;
+                  ref.read(dashboardController.notifier).setFavoriteCharacters(widget.item.id);
                 });
               },
             )

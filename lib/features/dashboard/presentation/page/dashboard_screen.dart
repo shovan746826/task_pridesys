@@ -63,6 +63,15 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
           titleColor: ColorConfig.whiteColor,
           titleAlignment: TitleAlignment.left,
           backgroundColor: ColorConfig.primaryColor,
+          customIcon: IconButton(
+            icon: const Icon(Icons.favorite,
+              color: ColorConfig.whiteColor,
+            ),
+            onPressed: () {
+              context.push(RouterPath.favoriteListScreenPath);
+            },
+          )
+
         ),
         body: RefreshIndicator(
           onRefresh: () async{
