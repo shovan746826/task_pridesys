@@ -13,6 +13,7 @@ class DashboardController extends BaseController{
 
   var searchTextController = TextEditingController();
   final characterHiveBox = Hive.box<CharacterModel>('characterModelBox');
+  var searchFocusNode = FocusNode();
 
 
   Future<List<CharacterModel>> getCharacterList() async {
@@ -74,9 +75,11 @@ class DashboardController extends BaseController{
   }
 
   Future<List<CharacterModel>> getFavoriteCharacters() async{
-    var list = characterHiveBox.values.toList().where((element) => element.isFavorite).toList();
-    debugPrint("favorite list size: ${list.length}");
-    return list;
+    return characterHiveBox.values.toList().where((element) => element.isFavorite).toList();
+  }
+
+  Future<List<CharacterModel>> searchCharacters(String keyword) async{
+    return characterHiveBox.values.toList().where((element) => element.name.toLowerCase().contains(keyword.toLowerCase())).toList();
   }
 
 }

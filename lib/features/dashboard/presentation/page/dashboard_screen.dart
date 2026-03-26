@@ -31,7 +31,6 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
     // TODO: implement initState
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) async{
       ref.read(getCharacterListProvider.notifier).getCachedCharacters();
-
       scrollController.addListener(() {
         if (scrollController.position.pixels >=
             scrollController.position.maxScrollExtent) {
@@ -43,6 +42,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
           isScroll = true;
         }
       });
+
     });
     super.initState();
   }
@@ -80,7 +80,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
               Container(
                 height: 48.h,
                 padding: EdgeInsets.symmetric(horizontal: 16.w),
-                margin: EdgeInsets.symmetric(vertical: 12.h),
+                margin: EdgeInsets.only(bottom: 12.h),
                 decoration: BoxDecoration(
                   color: ColorConfig.transparentColor,
                   borderRadius: BorderRadius.circular(16.r),
@@ -103,6 +103,8 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                     Expanded(
                       child: TextField(
                         controller: controller.searchTextController,
+                        focusNode: controller.searchFocusNode,
+                        autofocus: false,
                         style: TextStyle(
                           fontSize: 12.sp,
                           color: ColorConfig.whiteColor,
@@ -124,9 +126,10 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                         },
                         onChanged: (value) {
                           if (value.isEmpty) {
+                            ref.read(getCharacterListProvider.notifier).getCachedCharacters();
                             return;
                           }
-
+                          ref.read(getCharacterListProvider.notifier).searchCharacters(value);
                         },
                         maxLines: 1,
                         textInputAction: TextInputAction.done,
@@ -138,6 +141,9 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                     GestureDetector(
                       onTap: () {
                         controller.searchTextController.clear();
+                        ref.read(getCharacterListProvider.notifier).getCachedCharacters();
+                        FocusScope.of(Get.context!).unfocus();
+                        ref.read(dashboardController.notifier).searchFocusNode.unfocus();
                       },
                       child: Icon(
                         Icons.cancel_outlined,
@@ -166,6 +172,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                           var item = itemList[index];
                           return GestureDetector(
                             onTap: (){
+                              ref.read(dashboardController.notifier).searchFocusNode.unfocus();
                               context.push(RouterPath.detailsScreenPath, extra: item);
                             },
                             child: Container(

@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:task/core/config/size_config.dart';
 import 'package:task/core/global/widgets/app_background_view.dart';
+import 'package:task/core/global/widgets/primary_button.dart';
 
 import '../../../../core/config/color_config.dart';
 import '../../../../core/global/widgets/custom_appbar.dart';
@@ -104,6 +105,14 @@ class _DetailsScreenState extends ConsumerState<DetailsScreen> {
                 detailsComponentLocation(widget.item),
               ]
           ),
+        ),
+
+        bottomNavigationBar: PrimaryButton(
+          btnBorderRadius: 0,
+          btnText: 'Edit',
+          onPressed: (){
+
+          },
         ),
       ),
     );

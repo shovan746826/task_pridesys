@@ -49,6 +49,19 @@ class CharacterListNotifier extends StateNotifier<AsyncValue<List<CharacterModel
     }
   }
 
+  searchCharacters(String keyword) async {
+    if((state.value ?? []).isEmpty) {
+      state = const AsyncValue.loading(); // Set loading state before fetching data
+    }
+    try {
+      final newItems = await controller.searchCharacters(keyword);
+      state = AsyncValue.data(newItems);
+    } catch (e, stack) {
+      state = AsyncValue.error(e, stack); // Handle errors properly
+    }
+  }
+
+
   void clearState() {
     state = const AsyncValue.data([]);
   }
