@@ -45,8 +45,7 @@ class CharacterModel extends HiveObject {
     required this.gender,
     required this.origin,
     required this.location,
-    this.isFavorite = false,
-
+    required this.isFavorite,
   });
 
 }

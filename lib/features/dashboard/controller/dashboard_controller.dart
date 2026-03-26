@@ -56,24 +56,27 @@ class DashboardController extends BaseController{
   }
 
 
-  Future<void> setFavoriteCharacters(int id) async{
+  Future<void> setFavoriteCharacters(int id, {bool isFavorite = true}) async{
     var index = characterHiveBox.values.toList().indexWhere((element) => element.id == id);
+    var data = characterHiveBox.getAt(index) ?? characterHiveBox.values.toList()[index];
     await characterHiveBox.putAt(index, CharacterModel(
-      id: characterHiveBox.values.toList()[index].id,
-      name: characterHiveBox.values.toList()[index].name,
-      image: characterHiveBox.values.toList()[index].image,
-      species: characterHiveBox.values.toList()[index].species,
-      status: characterHiveBox.values.toList()[index].status,
-      type: characterHiveBox.values.toList()[index].type,
-      gender: characterHiveBox.values.toList()[index].gender,
-      origin: characterHiveBox.values.toList()[index].origin,
-      location: characterHiveBox.values.toList()[index].location,
-      isFavorite: !characterHiveBox.values.toList()[index].isFavorite,
+      id: data.id,
+      name: data.name,
+      image: data.image,
+      species: data.species,
+      status: data.status,
+      type: data.type,
+      gender: data.gender,
+      origin: data.origin,
+      location: data.location,
+      isFavorite: isFavorite,
     ));
   }
 
   Future<List<CharacterModel>> getFavoriteCharacters() async{
-    return characterHiveBox.values.toList().where((element) => element.isFavorite).toList();
+    var list = characterHiveBox.values.toList().where((element) => element.isFavorite).toList();
+    debugPrint("favorite list size: ${list.length}");
+    return list;
   }
 
 }
