@@ -88,6 +88,13 @@ flutter pub get
 flutter run
 ```
 
+
+## 🛠️ Build
+
+```bash
+flutter build apk --release
+```
+
 ## 🌐 Networking (Dio)
 
 - Centralized API handling
@@ -120,11 +127,6 @@ flutter run
 
 ---
 
-## 🛠️ Build
-
-```bash
-flutter build apk --release
-```
 
 
 ## 🧠 State Management Choice
