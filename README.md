@@ -88,7 +88,6 @@ flutter pub get
 flutter run
 ```
 
-
 ## 🛠️ Build
 
 ```bash
