@@ -114,6 +114,9 @@ flutter run
 ```bash
 flutter build apk --release
 ```
+## APK File
+[Download APK](https://github.com/shovan746826/task_pridesys/blob/main/android/apk/app-release.apk)
+
 
 ## 👨‍💻 Author
 
