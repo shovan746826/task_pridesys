@@ -4,6 +4,14 @@ A scalable and production-ready Flutter application using **Riverpod**, **Dio**,
 
 ---
 
+## APK File
+[Download APK](https://github.com/shovan746826/task_pridesys/blob/main/android/apk/app-release.apk)
+
+## Demo Video
+[Watch Demo](https://youtube.com/shorts/NZTnm_ob6h4?feature=share)
+
+---
+
 ## 🚀 Tech Stack
 
 - **State Management:** Riverpod
@@ -117,11 +125,6 @@ flutter run
 ```bash
 flutter build apk --release
 ```
-## APK File
-[Download APK](https://github.com/shovan746826/task_pridesys/blob/main/android/apk/app-release.apk)
-
-## Demo Video
-[Watch Demo](https://youtube.com/shorts/NZTnm_ob6h4?feature=share)
 
 
 ## 🧠 State Management Choice
