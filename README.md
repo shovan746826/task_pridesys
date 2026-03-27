@@ -121,7 +121,3 @@ flutter build apk --release
 Flutter Developer
 
 ---
-
-## ⭐ Support
-
-If you like this project, give it a ⭐ on GitHub!
