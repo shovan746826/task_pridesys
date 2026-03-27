@@ -112,7 +112,19 @@ class _DetailsScreenState extends ConsumerState<DetailsScreen> {
           btnBorderRadius: 0,
           btnText: 'Edit',
           onPressed: (){
-            CustomBottomSheet.showSheet(context, detailsComponentEditView(widget.item), height: SizeConfig.screenHeight! * 0.7);
+            CustomBottomSheet.showSheet(context, detailsComponentEditView(widget.item, context, ref,(){
+              setState(() {
+                var controller = ref.watch(dashboardController);
+                widget.item.name = controller.nameEditTextController.text;
+                widget.item.status = controller.statusEditTextController.text;
+                widget.item.species = controller.speciesEditTextController.text;
+                widget.item.origin = controller.originEditTextController.text;
+                widget.item.type = controller.typeEditTextController.text;
+                widget.item.gender = controller.genderEditTextController.text;
+                widget.item.location = controller.locationEditTextController.text;
+                controller.updateCharacters(widget.item);
+              });
+            }), height: SizeConfig.screenHeight! * 0.7);
           },
         ),
       ),

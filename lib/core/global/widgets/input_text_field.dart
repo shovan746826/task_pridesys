@@ -70,7 +70,7 @@ class InputTextField extends StatelessWidget {
 
         glassView(
           padding: EdgeInsets.zero,
-          opacity: 0.5,
+          opacity: 0.1,
           color: ColorConfig.blackColor,
           child: TextFormField(
               controller: controller,
@@ -82,7 +82,7 @@ class InputTextField extends StatelessWidget {
               keyboardType: inputType,
               autovalidateMode: AutovalidateMode.onUserInteraction,
               style: TextStyle(
-                color: ColorConfig.whiteColor,
+                color: ColorConfig.blackColor,
                 fontSize: 14.sp,
               ),
               decoration: InputDecoration(

@@ -16,6 +16,15 @@ class DashboardController extends BaseController{
   var searchFocusNode = FocusNode();
 
 
+  var nameEditTextController = TextEditingController();
+  var statusEditTextController = TextEditingController();
+  var speciesEditTextController = TextEditingController();
+  var typeEditTextController = TextEditingController();
+  var genderEditTextController = TextEditingController();
+  var originEditTextController = TextEditingController();
+  var locationEditTextController = TextEditingController();
+
+
   Future<List<CharacterModel>> getCharacterList() async {
     var nextPage = await SharedPreference.getNextPage();
     var url =  (nextPage ?? "").isNotEmpty ? nextPage! : UrlUtils.characterListUrl;
