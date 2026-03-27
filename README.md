@@ -121,6 +121,36 @@ flutter build apk --release
 [Download APK](https://github.com/shovan746826/task_pridesys/blob/main/android/apk/app-release.apk)
 
 
+## 🧠 State Management Choice
+
+### ✅ Riverpod
+
+**Why Riverpod?**
+
+- Provides **compile-time safety**
+- Eliminates common issues found in Provider (like context misuse)
+- Supports **scalable and modular architecture**
+- Easy to test and maintain
+- Works well with clean architecture (separation of concerns)
+
+Riverpod helps keep business logic separate from UI, making the codebase cleaner and more maintainable as the project grows.
+
+---
+
+## 💾 Storage Approach
+
+### ✅ Hive (Local Database)
+
+**Why Hive?**
+
+- Lightweight and extremely fast (NoSQL)
+- Works offline without any dependency on native DB
+- Easy to integrate with Flutter
+- Suitable for:
+  - Caching API responses
+  - Storing user session data (tokens, preferences)
+
+
 ## 👨‍💻 Author
 
 **Ashiqur Rahman**  
