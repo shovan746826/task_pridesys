@@ -63,6 +63,9 @@ git clone https://github.com/shovan746826/task_pridesys.git
 
 ### 2️⃣ Go to Project Directory
 
+```bash
+cd your-project or task_pridesys
+```
 
 ### 3️⃣ Install Dependencies
 
