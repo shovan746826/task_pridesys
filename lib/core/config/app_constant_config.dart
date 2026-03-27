@@ -1,1 +1,1 @@
-const String appName = 'BS-23';
+const String appName = 'Pridesys Task';
